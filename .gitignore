@@ -19,3 +19,7 @@ doc/
 
 # Sublime
 *.sublime-workspace
+
+# Secrets
+database.yml
+secret_token.rb

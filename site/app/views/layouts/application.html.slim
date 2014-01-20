@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    / = render partial: "layouts/analytics"
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    title
+      = @title
+
+  body
+    = render partial: "layouts/navbar"
+    == yield
