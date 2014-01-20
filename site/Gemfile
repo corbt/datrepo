@@ -5,13 +5,16 @@ gem 'rails', '4.0.2'
 gem 'pg'
 
 # Front end
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'bourbon'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+
+# Admin
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Blog
 # gem 'bloggy', :github => 'jesseadams/bloggy', :branch => 'fix-rake-generate'

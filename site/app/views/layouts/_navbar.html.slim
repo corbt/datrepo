@@ -1,11 +1,25 @@
 - tabs = ["datasets","about"]
 
-nav.navbar.navbar-default.navbar-green role="navigation"
+nav.navbar.navbar-default.navbar-color role="navigation"
   .container
     / div class="navbar-header"
-    a class="navbar-brand" href="/" corbt
+    a.navbar-brand href="/" DatRepo
     / div class="collapse navbar-collapse"
-    ul class="nav navbar-nav" 
+    ul.nav.navbar-nav 
       - tabs.each do |tab|
           li class="#{'active' if tab == @page}"
             a href="/#{tab}" #{tab.titleize}
+
+    form.navbar-form.navbar-left role="search"
+      / .form-group
+      /   .input-group
+      /     input.form-control type="text" placeholder="Search datasets"
+      /     span.input-group-btn
+      /       button.btn.btn-default type="button" Search
+      .form-group
+        input.form-control type="text" placeholder="Search datasets"
+      button.btn.btn-default.btn-search type="submit" Go
+      / span.glyphicon.glyphicon-search
+
+    ul.nav.navbar-nav.navbar-right
+      = render partial: "layouts/navbar_login"
