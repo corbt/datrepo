@@ -1,7 +1,7 @@
-li
-  - if user_signed_in?
+- if user_signed_in?
+  li
     a.dropdown-toggle data-toggle="dropdown" href="#" 
-      = current_user.email
+      = current_user.username
       b.caret
     ul.dropdown-menu
       li
@@ -13,5 +13,6 @@ li
         a href="/users/edit" Edit user
       li
         a href="/users/sign_out" Log out
-  - else
+- else
+  li class="#{'active' if @login}"
     a href="/users/sign_in" Login/Register
