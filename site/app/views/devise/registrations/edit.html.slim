@@ -1,37 +1,38 @@
-h2
+- content_for :title do "Edit User" end
+
+h2 
   | Edit 
   = resource_name.to_s.humanize
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
-  div
+  .form-group
     = f.label :email
-    br
-    = f.email_field :email, :autofocus => true
+    = f.email_field :email, :autofocus => true, class: "form-control"
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div
+    div 
       | Currently waiting confirmation for: 
       = resource.unconfirmed_email
-  div
-    = f.label :password
-    i
-      | (leave blank if you don't want to change it)
-    br
-    = f.password_field :password, :autocomplete => "off"
-  div
+
+  .form-group
+    = f.label :password, "New Password"
+    em 
+      |  (leave blank to remain unchanged)
+    = f.password_field :password, :autocomplete => "off", class: "form-control"
+    
     = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation
-  div
+    = f.password_field :password_confirmation, class: "form-control"
+
+  .form-group
     = f.label :current_password
-    i
-      | (we need your current password to confirm your changes)
-    br
-    = f.password_field :current_password
+    em
+      |  (we need your current password to confirm changes)
+    = f.password_field :current_password, class: "form-control"
   div
-    = f.submit "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy? 
-  = button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
-= link_to "Back", :back
+    = f.submit "Update", class: "btn btn-primary"
+
+h3 Cancel my account
+p Cancelling your account is unrecoverable.  Any datasets you have uploaded will be deleted.
+= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger"
+
+.links
+  = link_to "Back", :back

@@ -1,3 +1,5 @@
+- content_for :title do "Sign Up" end
+
 h2 Sign up
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
@@ -10,6 +12,6 @@ h2 Sign up
     = f.password_field :password, class: "form-control"
     = f.label :password_confirmation
     = f.password_field :password_confirmation, class: "form-control"
-  = f.submit "Sign up", class: "btn btn-default"
+  = f.submit "Sign up", class: "btn btn-primary"
   .links
     = render "devise/shared/links"

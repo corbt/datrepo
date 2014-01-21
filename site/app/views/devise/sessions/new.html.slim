@@ -1,5 +1,8 @@
+- content_for :title do "Sign Up" end
+
 h2 Sign in
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  = devise_error_messages!
   .form-group
     = f.label :email
     = f.email_field :email, :autofocus => true, class: "form-control"
@@ -12,6 +15,6 @@ h2 Sign in
       label
         = f.check_box :remember_me
         span Remember me
-  = f.submit "Sign in", class: "btn btn-default"
+  = f.submit "Sign in", class: "btn btn-primary"
   .links
     = render "devise/shared/links"

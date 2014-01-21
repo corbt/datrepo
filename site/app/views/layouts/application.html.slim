@@ -5,10 +5,11 @@ html
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic"
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js", "data-turbolinks-track" => true
     = csrf_meta_tags
 
     title
-      = @title
+      = content_for?(:title) ? "DatRepo | #{yield(:title)}" : "DatRepo"
 
   body
     = render partial: "layouts/navbar"

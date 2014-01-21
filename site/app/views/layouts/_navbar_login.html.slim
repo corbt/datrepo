@@ -1,2 +1,17 @@
 li
-  a href="/users/sign_in" Login/Register
+  - if user_signed_in?
+    a.dropdown-toggle data-toggle="dropdown" href="#" 
+      = current_user.email
+      b.caret
+    ul.dropdown-menu
+      li
+        a href="" My dats
+      li
+        a href="" Dats I follow
+      li.divider
+      li
+        a href="/users/edit" Edit user
+      li
+        a href="/users/sign_out" Log out
+  - else
+    a href="/users/sign_in" Login/Register
