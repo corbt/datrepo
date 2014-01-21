@@ -12,4 +12,4 @@ html
 
   body
     = render partial: "layouts/navbar"
-    == yield
+    = content_for?(:content) ? yield(:content) : yield

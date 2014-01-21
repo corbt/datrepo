@@ -92,6 +92,9 @@ GEM
     high_voltage (2.1.0)
     highline (1.6.20)
     hike (1.2.3)
+    hpricot (0.8.6)
+    html2slim (0.0.4)
+      hpricot
     i18n (0.6.9)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
@@ -202,6 +205,7 @@ DEPENDENCIES
   capistrano-unicorn
   coffee-rails (~> 4.0.0)
   high_voltage
+  html2slim
   jquery-rails
   pg
   rails (= 4.0.2)

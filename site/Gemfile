@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Admin
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'gregbell/active_admin'  
 
 # Blog
 # gem 'bloggy', :github => 'jesseadams/bloggy', :branch => 'fix-rake-generate'
@@ -34,6 +34,8 @@ group :development do
   gem 'capistrano-unicorn', require: false
   gem 'capistrano-remote-cache-with-project-root'#, require: false
   gem 'cape', require: false
+
+  gem 'html2slim', require:false
 end
 
 # Static pages

@@ -1,0 +1,12 @@
+h2 Forgot your password?
+markdown:
+  Automatic password recovery is not yet implemented.  For now, please send an email to [kyle@corbt.com](mailto:kyle@corbt.com) requesting a password reset and your request will be processed promptly.
+/ = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+/   = devise_error_messages!
+/   .form-group
+/     = f.label :email
+/     = f.email_field :email, :autofocus => true, class: "form-control"
+
+/   = f.submit "Send me password reset instructions", class: "btn btn-default"
+/ .links
+/   = render "devise/shared/links"

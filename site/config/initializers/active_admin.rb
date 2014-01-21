@@ -82,7 +82,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  config.current_user_method = :current_user
 
 
   # == Logging Out
@@ -232,4 +232,8 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 
+end
+
+def authenticate_admin_user!
+  redirect_to :root unless user_signed_in? && current_user.admin?
 end
