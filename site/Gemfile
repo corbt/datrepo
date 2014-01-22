@@ -35,8 +35,13 @@ group :development do
   gem 'capistrano-remote-cache-with-project-root'#, require: false
   gem 'cape', require: false
 
-  gem 'html2slim', require:false
+  gem 'html2slim', require: false
+
 end
+
+# Testing
+gem 'rspec-rails', :group => [:development, :test]
+gem "factory_girl_rails", :group => [:development, :test]
 
 # Static pages
 gem 'high_voltage'
