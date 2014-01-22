@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
     length: { minimum: 3 },
     exclusion: { in: %w(corbt kyle kcorbitt datrepo admin) }
 
+  has_many :datasets
 
-  validates_each :username do |record, attr, value|
-
-  end
-
-  # validates_uniqueness_of :username
 end

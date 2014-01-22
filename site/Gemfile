@@ -44,6 +44,9 @@ gem 'high_voltage'
 gem 'slim'
 gem 'redcarpet'
 
+# Search
+gem "searchkick"
+
 # gem 'whenever'
 
 # Use ActiveModel has_secure_password
