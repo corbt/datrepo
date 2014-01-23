@@ -1,0 +1,18 @@
+.message-area {
+  margin-bottom: 20px;
+}
+
+.message {
+  @extend .alert;
+  text-align: center;
+}
+
+.message-notice {
+  @extend .message;
+  @extend .alert-info;
+}
+
+.message-alert {
+  @extend .message;
+  @extend .alert-warning;
+}

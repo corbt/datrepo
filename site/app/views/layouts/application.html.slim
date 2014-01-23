@@ -13,4 +13,5 @@ html
 
   body
     = render partial: "layouts/navbar"
+    = render partial: "layouts/alerts"
     = content_for?(:content) ? yield(:content) : yield

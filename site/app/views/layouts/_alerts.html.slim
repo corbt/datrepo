@@ -1,0 +1,10 @@
+.message-area
+  - if flash[:notice]
+    .message-notice
+      .container
+        = flash[:notice]
+
+  - if flash[:alert]
+    .message-alert
+      .container
+        = flash[:alert]

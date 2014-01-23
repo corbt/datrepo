@@ -1,0 +1,20 @@
+// @import "bootstrap";
+
+.devise_form {
+  max-width: 450px;
+
+  .links {
+    margin-top: 18px;
+  }
+
+  #error_explanation {
+    @extend .alert;
+    @extend .alert-danger;
+
+    h2 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: bold;
+    }
+  }
+}
