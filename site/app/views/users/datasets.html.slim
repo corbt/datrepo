@@ -1,0 +1,8 @@
+.container
+  .create-dataset
+    = link_to new_dataset_path do
+      button.btn.btn-primary Create New Dataset
+
+  .user-datasets
+    = render partial: "datasets/datasets_list", 
+      locals: {title: "#{current_user.username.titleize}'s Datasets", datasets: nil}

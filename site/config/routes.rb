@@ -6,7 +6,7 @@ Datrepo::Application.routes.draw do
 
   get '/about', to: 'high_voltage/pages#show', id: 'about'
 
-  resources :datasets, only: [:index, :show] do
+  resources :datasets do
     collection do
       get 'popular'
       get 'search'

@@ -29,7 +29,23 @@ describe User do
     end
   end
 
+  it "should require unique usernames" do
+    user1 = User.create!(@attr.merge(:username => "lowercase"))
+    user2 = User.new(@attr.merge(:username => "Lowercase"))
+
+    user2.should_not be_valid
+  end
+
+  it "should lowercase all usernames" do
+    user1 = User.create!(@attr.merge(:username => "UPPERCASE"))
+    user1.username.should_not == "UPPERCASE"
+    user1.username.should == "uppercase"
+  end
+
   it "should reject invalid usernames" do
+    whitespace_name_user = User.new(@attr.merge(:username => "bob smith"))
+    whitespace_name_user.should_not be_valid
+
     names = %w[admin 1233 aa]
     names.each do |name|
       invalid_username_user = User.new(@attr.merge(:username => name))
