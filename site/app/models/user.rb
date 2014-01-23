@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
     presence: true, 
     uniqueness: { case_sensitive: false },
     length: { minimum: 3 },
-    exclusion: { in: %w(corbt kyle kcorbitt datrepo admin) }
+    exclusion: { in: %w(corbt kyle kcorbitt datrepo admin) },
+    format: { with: /\A(?=.*[a-z])[a-z\d]+\Z/i, message: "should be alphanumeric"}
 
   has_many :datasets
 
