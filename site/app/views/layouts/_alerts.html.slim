@@ -1,10 +1,10 @@
 .message-area
   - if flash[:notice]
-    .message-notice
-      .container
-        = flash[:notice]
+    .alert.alert-info
+      button.close type="button" data-dismiss="alert" aria-hidden="true"&times;
+      = flash[:notice]
 
   - if flash[:alert]
-    .message-alert
-      .container
-        = flash[:alert]
+    .alert.alert-warning
+      button.close type="button" data-dismiss="alert" aria-hidden="true"&times;
+      = flash[:alert]

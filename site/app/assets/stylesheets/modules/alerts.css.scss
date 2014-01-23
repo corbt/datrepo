@@ -2,17 +2,17 @@
   margin-bottom: 20px;
 }
 
-.message {
-  @extend .alert;
+.alert {
   text-align: center;
+  border-radius: 0;
 }
 
-.message-notice {
-  @extend .message;
-  @extend .alert-info;
-}
+// .message-notice {
+//   @extend .message;
+//   @extend .alert-info;
+// }
 
-.message-alert {
-  @extend .message;
-  @extend .alert-warning;
-}
+// .message-alert {
+//   @extend .message;
+//   @extend .alert-warning;
+// }
