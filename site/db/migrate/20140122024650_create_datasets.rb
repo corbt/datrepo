@@ -8,7 +8,7 @@ class CreateDatasets < ActiveRecord::Migration
       t.references :user, index: true
       t.text :custom_license
       t.text :description
-      t.text :title
+      t.string :title
 
       t.timestamps
     end
