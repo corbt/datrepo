@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140126040020) do
     t.integer  "user_id"
     t.text     "custom_license"
     t.text     "description"
-    t.string   "title"
+    t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,3 +6,22 @@
   margin: 10px 20px;
   color: #A09E9E;
 }
+
+.narrow {
+  max-width: 800px;
+}
+
+.show-dataset {
+  .edit-button {
+    margin-bottom: 0;
+  }
+}
+
+.license {
+  color: #aaa;
+
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+  }
+}
