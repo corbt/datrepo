@@ -54,23 +54,23 @@ $colHighlight   : #4e4e4e;
 
 // Custom styling
 .navbar {
-    margin: 0;
+    .navbar-brand { @extend .hidden-xs; }
+    .about { @extend .hidden-xs; }
 
-    $element-margin: ($navbar-height - 28)/2;
-    .form-group {
-        margin-top: $element-margin;
-    }
+    #main-search {
+        @extend .hidden-xs;
+        margin-top: ($navbar-height - 28)/2;
 
-    .btn-search {
-        margin-left: -4px;
-        margin-top: $element-margin;
-        border-radius: 0 4px 4px 0;
-        padding: 3px 12px;
-    }
+        .btn-search {
+            margin-left: -4px;
+            border-radius: 0 4px 4px 0;
+            padding: 3px 12px;
+        }
 
-    .dataset-search {
-        padding: 3px 12px;
-        height: 28px;
+        .dataset-search {
+            padding: 3px 12px;
+            height: 28px;
+        }
     }
 }
 

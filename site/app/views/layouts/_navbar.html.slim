@@ -1,16 +1,16 @@
 - tabs = ["datasets","about"]
 
 nav.navbar.navbar-default.navbar-color role="navigation"
-  .container
+  .container-fluid
     / div class="navbar-header"
-    a.navbar-brand href="/" DatRepo
+    a.nav.navbar-brand href="/" DatRepo
     / div class="collapse navbar-collapse"
     ul.nav.navbar-nav 
       - tabs.each do |tab|
-          li class="#{'active' if tab == @page}"
+          li class="#{'active' if tab == @page} #{tab}"
             a href="/#{tab}" #{tab.titleize}
 
-    form.navbar-form.navbar-left role="search"
+    form#main-search.navbar-form.navbar-left role="search"
       / .form-group
       /   .input-group
       /     input.form-control type="text" placeholder="Search datasets"
