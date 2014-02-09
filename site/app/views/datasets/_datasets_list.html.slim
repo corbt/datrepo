@@ -2,6 +2,11 @@
   = title
 
 - if datasets && datasets.size > 0
+  .dataset-count #{pluralize(datasets.size, "dataset")} found
 
+  = render partial: "summary", collection: datasets
 - else
-  .datasets-empty No datasets found.  Sorry!
+  .datasets-empty
+    | No datasets found. You can always look at the  
+    = link_to "popular datasets", popular_datasets_path
+    | .

@@ -1,0 +1,7 @@
+.dataset-summary
+  h4
+    = link_to summary.title, dataset_path(summary)
+  .snippet
+    = summary.description_plaintext.slice(0, 500)
+    -if summary.description_plaintext.size > 500
+      strong  ...

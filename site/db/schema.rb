@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126040020) do
+ActiveRecord::Schema.define(version: 20140209060705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 20140126040020) do
     t.integer  "user_id"
     t.text     "custom_license"
     t.text     "description"
-    t.text     "title"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description_plaintext"
   end
 
   add_index "datasets", ["user_id"], name: "index_datasets_on_user_id", using: :btree

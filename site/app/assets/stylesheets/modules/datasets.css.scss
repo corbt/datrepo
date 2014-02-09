@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .datasets-empty {
-  margin: 10px 20px;
+  margin-top: 10px;
   color: #A09E9E;
 }
 
@@ -36,4 +36,8 @@
     padding: 3px 8px;
     height: 28px;
   }
+}
+
+.dataset-count {
+  color: #aaa;
 }

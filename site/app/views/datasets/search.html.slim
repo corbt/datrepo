@@ -1,0 +1,11 @@
+- @search_off = true
+
+.container
+  - if @results
+    = render partial: "datasets/datasets_list", 
+      locals: {title: "Search Results", datasets: @results}
+  - else
+    .datasets-empty 
+      | No datasets found. You can always look at the  
+      = link_to popular_datasets_path, "popular datasets"
+      | .
