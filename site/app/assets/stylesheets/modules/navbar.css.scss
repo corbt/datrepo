@@ -56,9 +56,21 @@ $colHighlight   : #4e4e4e;
 .navbar {
     margin: 0;
 
+    $element-margin: ($navbar-height - 28)/2;
+    .form-group {
+        margin-top: $element-margin;
+    }
+
     .btn-search {
         margin-left: -4px;
+        margin-top: $element-margin;
         border-radius: 0 4px 4px 0;
+        padding: 3px 12px;
+    }
+
+    .dataset-search {
+        padding: 3px 12px;
+        height: 28px;
     }
 }
 
