@@ -11,5 +11,4 @@
       .license
         h2 Data License
         = SanitizedRenderer.render(@dataset.custom_license).html_safe
-    .actions.col-md-3
-      | Actions
+    = render 'actions'

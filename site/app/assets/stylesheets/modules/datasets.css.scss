@@ -25,3 +25,14 @@
     font-size: 1.2em;
   }
 }
+
+.actions {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding-bottom: 13px;
+
+  .clone-box {
+    padding: 3px 8px;
+    height: 28px;
+  }
+}
