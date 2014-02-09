@@ -1,7 +1,7 @@
 - tabs = ["datasets","about"]
 
 nav.navbar.navbar-default.navbar-color role="navigation"
-  .container-fluid
+  .container
     / div class="navbar-header"
     a.nav.navbar-brand href="/" DatRepo
     / div class="collapse navbar-collapse"
@@ -10,16 +10,17 @@ nav.navbar.navbar-default.navbar-color role="navigation"
           li class="#{'active' if tab == @page} #{tab}"
             a href="/#{tab}" #{tab.titleize}
 
-    form#main-search.navbar-form.navbar-left role="search"
-      / .form-group
-      /   .input-group
-      /     input.form-control type="text" placeholder="Search datasets"
-      /     span.input-group-btn
-      /       button.btn.btn-default type="button" Search
-      .form-group
-        input.dataset-search.form-control type="text" placeholder="Search datasets"
-      button.btn.btn-default.btn-search type="submit" Go
-      / span.glyphicon.glyphicon-search
+    - unless @search_off
+      form#main-search.navbar-form.navbar-left role="search" action="#{search_datasets_path}"
+        / .form-group
+        /   .input-group
+        /     input.form-control type="text" placeholder="Search datasets"
+        /     span.input-group-btn
+        /       button.btn.btn-default type="button" Search
+        .form-group
+          input.dataset-search.form-control type="text" placeholder="Search datasets" name="query"
+        button.btn.btn-default.btn-search type="submit" Go
+        / span.glyphicon.glyphicon-search
 
     ul.nav.navbar-nav.navbar-right
       = render partial: "layouts/navbar_login"

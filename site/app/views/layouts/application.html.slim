@@ -12,8 +12,10 @@ html
       = content_for?(:title) ? "DatRepo | #{yield(:title)}" : "DatRepo"
 
   body
-    = render partial: "layouts/navbar"
-    = render partial: "layouts/alerts"
-    = content_for?(:content) ? yield(:content) : yield
+    #wrapper
+      = render partial: "layouts/navbar"
+      = render partial: "layouts/alerts"
+      #content
+        = content_for?(:content) ? yield(:content) : yield
 
-    = render partial: "layouts/footer"
+      = render partial: "layouts/footer"
