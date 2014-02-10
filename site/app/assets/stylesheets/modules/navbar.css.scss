@@ -60,10 +60,11 @@ $colHighlight   : #4e4e4e;
     #main-search {
         @extend .hidden-xs;
         margin-top: ($navbar-height - 28)/2;
+        max-width: 320px;
 
         .btn-search {
-            margin-left: -4px;
-            border-radius: 0 4px 4px 0;
+            // margin-left: -4px;
+            // border-radius: 0 4px 4px 0;
             padding: 3px 12px;
         }
 

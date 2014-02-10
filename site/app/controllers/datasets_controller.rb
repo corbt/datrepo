@@ -16,6 +16,7 @@ class DatasetsController < ApplicationController
   def search
     @search_off = true # Removes search from the toolbar
     
+    @query = params[:query]
     @results = Dataset.search(params[:query]) if params[:query]
   end
 

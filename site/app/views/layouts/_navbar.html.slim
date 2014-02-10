@@ -12,14 +12,14 @@ nav.navbar.navbar-default.navbar-color role="navigation"
 
     - unless @search_off
       form#main-search.navbar-form.navbar-left role="search" action="#{search_datasets_path}"
-        / .form-group
-        /   .input-group
-        /     input.form-control type="text" placeholder="Search datasets"
-        /     span.input-group-btn
-        /       button.btn.btn-default type="button" Search
-        .form-group
+        .input-group
           input.dataset-search.form-control type="text" placeholder="Search datasets" name="query"
-        button.btn.btn-default.btn-search type="submit" Go
+          span.input-group-btn
+            button.btn.btn-default.btn-search type="submit" Go
+
+        / .form-group
+        /   input.dataset-search.form-control type="text" placeholder="Search datasets" name="query"
+        / button.btn.btn-default.btn-search type="submit" Go
         / span.glyphicon.glyphicon-search
 
     ul.nav.navbar-nav.navbar-right
