@@ -26,11 +26,14 @@ class Search
 
     source.initialize()
 
-    element.typeahead null, {
+    element.typeahead(null, {
       displayKey: 'name'
       source: source.ttAdapter()
-    }
+    })
 
-$ ->
+    element.on "typeahead:selected", (event, data, dataset) ->
+      $(event.target).closest('form').submit()
+
+$(document).on 'page:change', ->
   if $('#dataset-search').length > 0
     new Search()

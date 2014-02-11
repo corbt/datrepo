@@ -47,11 +47,11 @@
 }
 
 .twitter-typeahead {
-  // display: inline !important;
   width: 100%;
 
   .tt-hint {
     @extend .form-control;
+    color: #999;
   }
 
   input {
@@ -62,14 +62,24 @@
   .tt-dropdown-menu {
     width: 100%;
 
-    padding-top: 10px;
-    padding-left: 10px;
+    padding: 0;
     background: white;
     border: 1px solid #ddd;
     border-top: none;
   }
 
-  // .tt-is-under-cursor {
-  //   background-color: #eee !important;
-  // }
+  .tt-suggestion {
+    margin: 0;
+
+    padding: 5px 10px;
+
+    p {
+      margin: 0;
+    }
+
+    &.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+    }
+  }
 }
