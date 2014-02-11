@@ -34,6 +34,11 @@ class DatasetsController < ApplicationController
     @dataset = Dataset.new
   end
 
+  def autocomplete
+    # render json: Dataset.search(params[:query], fields: [{title: :text_start}], limit: 10).map(&:title)
+    render json: ["malicious", "malicious actors", "more malicious"]
+  end
+
   def create
     @dataset = Dataset.create(dataset_params.merge(user: current_user, records: 0, size: 0, downloads: 0))
     render 'new' unless @dataset.valid?

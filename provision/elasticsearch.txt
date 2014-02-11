@@ -1,0 +1,7 @@
+https://www.digitalocean.com/community/articles/how-to-install-elasticsearch-on-an-ubuntu-vps
+
+Use openjdk instead of oracle jdk
+apt-get install openjdk-7-jdk
+
+to download use no-check-certificate
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb --no-check-certificate

@@ -10,6 +10,7 @@ Datrepo::Application.routes.draw do
     collection do
       get 'popular'
       get 'search'
+      get 'autocomplete'
     end
   end
 

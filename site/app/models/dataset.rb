@@ -12,7 +12,7 @@ class Dataset < ActiveRecord::Base
   end
 
   # Makes indexable in elasticsearch
-  searchkick
+  searchkick text_start: [:title]
   def search_data
     as_json only: [:title, :description_plaintext]
   end

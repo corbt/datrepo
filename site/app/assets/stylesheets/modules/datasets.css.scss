@@ -45,3 +45,31 @@
 .search-bar {
   margin-bottom: 24px;
 }
+
+.twitter-typeahead {
+  // display: inline !important;
+  width: 100%;
+
+  .tt-hint {
+    @extend .form-control;
+  }
+
+  input {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+
+  .tt-dropdown-menu {
+    width: 100%;
+
+    padding-top: 10px;
+    padding-left: 10px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+
+  // .tt-is-under-cursor {
+  //   background-color: #eee !important;
+  // }
+}
