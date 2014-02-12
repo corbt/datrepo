@@ -13,13 +13,6 @@ class DatasetsController < ApplicationController
   def popular
   end
 
-  def search
-    @search_off = true # Removes search from the toolbar
-    
-    @query = params[:query]
-    @results = Dataset.search(params[:query]) if params[:query]
-  end
-
   def edit
     render 'new'
   end
@@ -32,11 +25,6 @@ class DatasetsController < ApplicationController
 
   def new
     @dataset = Dataset.new
-  end
-
-  def autocomplete
-    # render json: Dataset.search(params[:query], fields: [{title: :text_start}], limit: 10).map(&:title)
-    render json: ["malicious", "malicious actors", "more malicious"]
   end
 
   def create

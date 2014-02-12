@@ -11,7 +11,7 @@ nav.navbar.navbar-default.navbar-color role="navigation"
             a href="/#{tab}" #{tab.titleize}
 
     - unless @search_off
-      form#main-search.navbar-form.navbar-left role="search" action="#{search_datasets_path}"
+      form#main-search.navbar-form.navbar-left role="search" action="#{search_path}"
         .input-group
           input#dataset-search.dataset-search.form-control type="text" placeholder="Search datasets" name="query"
           span.input-group-btn

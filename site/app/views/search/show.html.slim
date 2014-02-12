@@ -8,8 +8,8 @@
         span.input-group-btn
           button.btn.btn-default type="submit" Search
   -unless @results.nil? || @results.empty?
-    = render partial: "datasets/datasets_list"
-      locals: {title: "Search Results", datasets: @results}
+    = render partial: "datasets/datasets_list", 
+        locals: {title: "Search Results", datasets: @results}
   - else
     .h2 Search Results
     .datasets-empty 

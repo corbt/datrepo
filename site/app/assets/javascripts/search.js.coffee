@@ -17,7 +17,7 @@ class Search
       datumTokenizer: (d) -> Bloodhound.tokenizers.whitespace(d.num)
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       remote: {
-        url: '/datasets/autocomplete?query=%QUERY'
+        url: '/search/autocomplete?query=%QUERY'
         filter: (results) ->
           $.map(results, (result) -> 
             { name: result })

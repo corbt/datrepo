@@ -5,12 +5,19 @@ Datrepo::Application.routes.draw do
   root to: redirect('/about')
 
   get '/about', to: 'high_voltage/pages#show', id: 'about'
+  # get '/search', to: 'search#show'
+
+  resource :search, controller: :search, only: :show do
+    get 'autocomplete'
+  end
+
+  # scope '/search' do
+  #   get '' to 'search#'
+  # end
 
   resources :datasets do
     collection do
       get 'popular'
-      get 'search'
-      get 'autocomplete'
     end
   end
 
