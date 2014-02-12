@@ -1,0 +1,50 @@
+.search-bar {
+  margin-bottom: 24px;
+}
+
+.dataset-count {
+  color: #aaa;
+}
+
+.result-title {
+  margin-top: 18px;
+  margin-bottom: 4px;
+}
+
+.twitter-typeahead {
+  width: 100%;
+
+  .tt-hint {
+    @extend .form-control;
+    color: #999;
+  }
+
+  input {
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+  }
+
+  .tt-dropdown-menu {
+    width: 100%;
+
+    padding: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+  }
+
+  .tt-suggestion {
+    margin: 0;
+
+    padding: 5px 10px;
+
+    p {
+      margin: 0;
+    }
+
+    &.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+    }
+  }
+}

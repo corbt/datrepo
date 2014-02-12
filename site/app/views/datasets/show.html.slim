@@ -6,11 +6,15 @@
       - if editable
         .edit-button
           = link_to "Edit Dataset", edit_dataset_path(@dataset), html_options={class: "btn btn-primary"}
-      h2
+      h2.dataset-title
         = @dataset.title
+      .username 
+        | By user 
+        = link_to @dataset.user.username, user_path(@dataset.user)
+
       .description
         = SanitizedRenderer.render(@dataset.description).html_safe
       .license
         h2 Data License
         = SanitizedRenderer.render(@dataset.custom_license).html_safe
-    = render 'actions'
+    = render 'sidebar'
