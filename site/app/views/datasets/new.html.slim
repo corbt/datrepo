@@ -1,3 +1,5 @@
+- content_for :title, @dataset.title ? "Editing #{@dataset.title}" : "New Dataset"
+
 .container.narrow
   = semantic_form_for @dataset do |f|
     .form-errors

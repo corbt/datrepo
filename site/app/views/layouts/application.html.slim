@@ -9,7 +9,7 @@ html
     = csrf_meta_tags
 
     title
-      = content_for?(:title) ? "DatRepo | #{yield(:title)}" : "DatRepo"
+      = content_for?(:title) ? "#{yield(:title)} | DatRepo" : "DatRepo"
 
   body
     #wrapper
