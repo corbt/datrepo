@@ -10,9 +10,9 @@
         a href="#{user_following_path(current_user.username)}" Datasets I follow
       li.divider
       li
-        a href="/users/edit" Edit user
+        = link_to "Edit account", edit_user_registration_path
       li
-        a href="/users/sign_out" Log out
+        = link_to "Log out", destroy_user_session_path
 - else
   li class="#{'active' if @login}"
     a href="/users/sign_in" Login/Register

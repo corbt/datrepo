@@ -1,20 +1,22 @@
-- content_for :title do "Sign Up" end
+- content_for :title, "Sign In"
 
-h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  = devise_error_messages!
-  .form-group
-    = f.label :username
-    = f.text_field :username, :autofocus => true, class: "form-control"
+- content_for :body do
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label :username
+      = f.text_field :username, :autofocus => true, class: "form-control"
 
-  .form-group
-    = f.label :password
-    = f.password_field :password, class: "form-control"
-  - if devise_mapping.rememberable?
-    .checkbox
-      label
-        = f.check_box :remember_me
-        span Remember me
-  = f.submit "Sign in", class: "btn btn-primary"
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: "form-control"
+    - if devise_mapping.rememberable?
+      .checkbox
+        label
+          = f.check_box :remember_me
+          span Remember me
+    = f.submit "Sign in", class: "btn btn-primary"
+
+- content_for :links do
   .links
     = render "devise/shared/links"

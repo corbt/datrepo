@@ -1,7 +1,15 @@
 - @login = true
-- content_for :content do
-  .container.devise_form
-    == yield
+- unless content_for? :content
+  - content_for :content do
+    .container.devise_form
+      .panel.panel-primary
+        .panel-heading
+          h2.panel-title
+            = content_for?(:form_title) ? yield(:form_title) : yield(:title)
+        .panel-body
+          = yield(:body)
+        .panel-footer
+          = yield(:links)
 
 
 =render template: "layouts/application"
