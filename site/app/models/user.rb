@@ -13,4 +13,10 @@ class User < ActiveRecord::Base
 
   has_many :datasets
 
+  has_many :user_favorite_collections
+  has_many :favorite_collections, through: :user_favorite_collections, source: :collection
+  has_many :user_favorite_datasets
+  has_many :favorite_datasets, through: :user_favorite_datasets, source: :dataset
+
+
 end

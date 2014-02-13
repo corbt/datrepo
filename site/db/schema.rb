@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213042334) do
+ActiveRecord::Schema.define(version: 20140213051826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20140213042334) do
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
+  create_table "collections_datasets", id: false, force: true do |t|
+    t.integer "collection_id", null: false
+    t.integer "dataset_id",    null: false
+  end
+
+  add_index "collections_datasets", ["collection_id"], name: "index_collections_datasets_on_collection_id", using: :btree
+  add_index "collections_datasets", ["dataset_id"], name: "index_collections_datasets_on_dataset_id", using: :btree
+
   create_table "datasets", force: true do |t|
     t.string   "path"
     t.integer  "records"
@@ -48,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140213042334) do
     t.integer  "user_id"
     t.text     "custom_license"
     t.text     "description"
-    t.text     "title"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_plaintext"
@@ -78,5 +86,21 @@ ActiveRecord::Schema.define(version: 20140213042334) do
 
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "users_favorite_collections", id: false, force: true do |t|
+    t.integer "user_id",       null: false
+    t.integer "collection_id", null: false
+  end
+
+  add_index "users_favorite_collections", ["collection_id"], name: "index_users_favorite_collections_on_collection_id", using: :btree
+  add_index "users_favorite_collections", ["user_id"], name: "index_users_favorite_collections_on_user_id", using: :btree
+
+  create_table "users_favorite_datasets", id: false, force: true do |t|
+    t.integer "user_id",    null: false
+    t.integer "dataset_id", null: false
+  end
+
+  add_index "users_favorite_datasets", ["dataset_id"], name: "index_users_favorite_datasets_on_dataset_id", using: :btree
+  add_index "users_favorite_datasets", ["user_id"], name: "index_users_favorite_datasets_on_user_id", using: :btree
 
 end
