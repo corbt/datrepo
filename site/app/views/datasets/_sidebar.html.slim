@@ -1,9 +1,13 @@
 .col-md-3
   .sidebar
     .actions
-      .action-group
-        button.btn.action-button type="button" Favorite
-        .action-show 322
+      .action-group#favorite
+        - if user_signed_in? && UserFavoriteDataset.where(dataset: @dataset, user: current_user).present?
+          button.btn.action-button#favorite-button type="button" data-url="#{dataset_favorite_path(@dataset)}" data-favorited="true" Unfavorite
+        - else
+          button.btn.action-button#favorite-button type="button" data-url="#{dataset_favorite_path(@dataset)}" data-favorited="false" Favorite
+        .action-show#favorite-count
+          = number_with_delimiter @dataset.favoriting_users.size
       .action-group
         .btn-group
           button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 
@@ -12,7 +16,8 @@
           ul.dropdown-menu role="menu"
             li You have no collections
         .action-show 
-          a href="asdf" 32
+          a href="asdf"
+            = number_with_delimiter @dataset.collections.size
       .action-group
         .btn-group
           button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 
@@ -23,7 +28,8 @@
               a href="JSON" JSON
             li
               a href="CSV" CSV
-        .action-show 500,000
+        .action-show 
+          = number_with_delimiter @dataset.downloads
 
     .actions.last
       .action-group.input-group

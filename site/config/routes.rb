@@ -16,6 +16,8 @@ Datrepo::Application.routes.draw do
   # end
 
   resources :datasets do
+    post 'favorite'
+
     collection do
       get 'popular'
     end
