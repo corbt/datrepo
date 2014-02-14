@@ -2,7 +2,7 @@
   .panel-heading
     h3.panel-title 
       = title
-    - if defined? new_enabled
+    - if (defined? new_enabled) && new_enabled
       = link_to new_dataset_path do
         button.new-btn.btn.btn-primary.btn-xs.new-btn New Dataset
 

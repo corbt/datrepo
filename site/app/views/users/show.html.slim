@@ -1,4 +1,6 @@
-- content_for :user, "User #{@user.username}"
+- content_for :title, "User #{@user.username}"
+
+- new_enabled = user_signed_in? && current_user == @user
 
 .container.show-user
   - if @user.name?
@@ -10,13 +12,17 @@
   h3 Datasets
   .row
     .col-md-6
-      = render partial: "datasets", locals: {title: "Mine", new_enabled: true, datasets: @user.datasets}
+      = render partial: "datasets", 
+        locals: {title: "Mine", new_enabled: new_enabled, datasets: @user.datasets}
     .col-md-6
-      = render partial: "datasets", locals: {title: "Favorites", datasets: @user.favorite_datasets}
+      = render partial: "datasets", 
+        locals: {title: "Favorites", datasets: @user.favorite_datasets}
 
   h3 Collections
   .row
     .col-md-6
-      = render partial: "collections", locals: {title: "Mine", new_enabled: true, collections: @user.collections}
+      = render partial: "collections", 
+        locals: {title: "Mine", new_enabled: new_enabled, collections: @user.collections}
     .col-md-6
-      = render partial: "collections", locals: {title: "Favorites", collections: @user.favorite_collections}
+      = render partial: "collections", 
+        locals: {title: "Favorites", collections: @user.favorite_collections}
