@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper_method :user_path
+
+  def user_path(user)
+    return "/users/#{user.username}" if user.is_a? User
+    return "/users/#{user}"
+  end
+
+  # Devise methods
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   after_filter :store_location
@@ -23,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    session[:previous_url] || user_path(current_user.username)
+    session[:previous_url] || user_path(current_user)
   end
 
   protected
