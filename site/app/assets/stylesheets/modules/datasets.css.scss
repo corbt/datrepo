@@ -1,12 +1,3 @@
-// Place all the styles related to the Datasets controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.datasets-empty {
-  margin-top: 10px;
-  color: #A09E9E;
-}
-
 .narrow {
   max-width: 800px;
 }
@@ -15,24 +6,30 @@
   .edit-button {
     margin-bottom: 0;
   }
-}
 
-.dataset-title {
-  margin-bottom: 0px;
-}
+  .dataset-title {
+    margin-bottom: 0px;
+  }
 
-.license {
-  color: #aaa;
+  .license {
+    color: #aaa;
 
-  h2 {
-    text-transform: uppercase;
-    font-size: 1.2em;
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.2em;
+    }
+  }
+
+  .username {
+    font-style: italic;
+    margin-bottom: 20px;
   }
 }
 
-.username {
-  font-style: italic;
-  margin-bottom: 20px;
+.edit-dataset {
+  .panel {
+    margin-bottom: 20px;
+  }
 }
 
 .sidebar {

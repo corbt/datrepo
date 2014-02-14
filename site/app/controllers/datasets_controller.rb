@@ -1,8 +1,8 @@
 class DatasetsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :update, :edit]
+  before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
 
-  before_filter :find_dataset, only: [:show, :edit, :update]
-  before_filter :ensure_editable, only: [:update]
+  before_filter :find_dataset, only: [:show, :edit, :update, :destroy]
+  before_filter :ensure_editable, only: [:update, :destroy]
 
   helper_method :editable
 
@@ -11,10 +11,6 @@ class DatasetsController < ApplicationController
   end
 
   def popular
-  end
-
-  def edit
-    render 'new'
   end
 
   def update
@@ -32,6 +28,13 @@ class DatasetsController < ApplicationController
     render 'new' unless @dataset.valid?
 
     redirect_to dataset_path(@dataset)
+  end
+
+  def destroy
+    title = @dataset.title
+    @dataset.destroy
+    flash[:notice] = "Deleted dataset \"#{title}\""
+    redirect_to user_path(current_user)
   end
 
   private

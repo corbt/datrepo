@@ -1,0 +1,22 @@
+- content_for :title, @dataset.title ? "Editing #{@dataset.title}" : "New Dataset"
+
+.container.narrow.edit-dataset
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title Update Dataset Information
+    .panel-body
+      = semantic_form_for @dataset do |f|
+        .form-errors
+          = f.semantic_errors :title, :description, :custom_license
+        = f.inputs
+          = f.input :title, required: true
+          = f.input :description
+          = f.input :custom_license, label: "License", hint: "By adding a license to your data, you can let others know what uses are permitted.", input_html: {rows: 5}
+        = f.actions
+          = f.action :submit, button_html: {class: "btn btn-primary"}
+
+  .panel.panel-danger
+    .panel-heading Danger Zone
+    .panel-body
+      p Deleting a dataset is unrecoverable. The data will be removed, and any favorites associated with it will be lost.
+      = button_to "Delete Dataset", dataset_path(@dataset), method: :delete, class: "btn btn-danger"
