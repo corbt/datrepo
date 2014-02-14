@@ -1,0 +1,7 @@
+.dataset-summary
+  span.title
+    = link_to dataset.title, dataset_path(dataset)
+  span.favorite-count
+    |  (
+    = pluralize(dataset.favoriting_users.size, "favorite")
+    | )

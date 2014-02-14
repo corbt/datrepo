@@ -1,3 +1,29 @@
+@import "bourbon";
+
 .create-dataset {
   margin-bottom: 25px;
+}
+
+.show-user {
+  .full-name {
+    margin-bottom: 0;
+  }
+
+  .username {
+    color: #aaa;
+    font-size: 1.2em;
+  }
+
+
+  .panel-heading {
+    @include clearfix;
+
+    .panel-title {
+      display: inline-block;
+    }
+
+    .new-btn {
+      margin-left: 10px;
+    }
+  }
 }

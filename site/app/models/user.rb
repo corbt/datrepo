@@ -11,12 +11,11 @@ class User < ActiveRecord::Base
     exclusion: { in: %w(corbt kyle kcorbitt datrepo admin) },
     format: { with: /\A(?=.*[a-z])[a-z\d]+\Z/i, message: "should be alphanumeric"}
 
-  has_many :datasets
+  has_many :datasets, dependent: :destroy
+  has_many :collections, dependent: :destroy
 
-  has_many :user_favorite_collections
+  has_many :user_favorite_collections, dependent: :destroy
   has_many :favorite_collections, through: :user_favorite_collections, source: :collection
-  has_many :user_favorite_datasets
+  has_many :user_favorite_datasets, dependent: :destroy
   has_many :favorite_datasets, through: :user_favorite_datasets, source: :dataset
-
-
 end

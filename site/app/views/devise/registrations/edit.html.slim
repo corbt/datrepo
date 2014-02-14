@@ -12,6 +12,9 @@
             = f.label :username
             = f.text_field :username, class: "form-control", disabled: true
           .form-group
+            = f.label :name
+            = f.text_field :name, :autofocus => true, class: "form-control"
+          .form-group
             = f.label :email
             = f.email_field :email, :autofocus => true, class: "form-control"
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?

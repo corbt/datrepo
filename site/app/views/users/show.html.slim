@@ -1,0 +1,22 @@
+- content_for :user, "User #{@user.username}"
+
+.container.show-user
+  - if @user.name?
+    h2.full-name
+      = @user.name
+  .username
+    = @user.username
+
+  h3 Datasets
+  .row
+    .col-md-6
+      = render partial: "datasets", locals: {title: "Mine", new_enabled: true, datasets: @user.datasets}
+    .col-md-6
+      = render partial: "datasets", locals: {title: "Favorites", datasets: @user.favorite_datasets}
+
+  h3 Collections
+  .row
+    .col-md-6
+      = render partial: "collections", locals: {title: "Mine", new_enabled: true, collections: @user.collections}
+    .col-md-6
+      = render partial: "collections", locals: {title: "Favorites", collections: @user.favorite_collections}

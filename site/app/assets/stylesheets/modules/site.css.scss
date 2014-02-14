@@ -22,3 +22,13 @@ html, body {
   text-align: center;
   color: #ccc;
 }
+
+.panel-spacer {
+  margin: 15px -15px;
+  height: 1px;
+  background: #ddd;
+}
+
+.panel-empty {
+  color: #A09E9E;
+}

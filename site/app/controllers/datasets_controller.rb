@@ -34,7 +34,7 @@ class DatasetsController < ApplicationController
     title = @dataset.title
     @dataset.destroy
     flash[:notice] = "Deleted dataset \"#{title}\""
-    redirect_to user_path(current_user)
+    redirect_to user_path(current_user.username)
   end
 
   private
