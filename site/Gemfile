@@ -39,6 +39,7 @@ group :development do
   gem 'cape', require: false
 
   gem 'html2slim', require: false
+  gem 'quiet_assets'
 
 end
 
