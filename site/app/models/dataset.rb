@@ -3,7 +3,7 @@ class Dataset < ActiveRecord::Base
   has_and_belongs_to_many :collections
 
   has_many :user_favorite_datasets, dependent: :destroy
-  has_many :favoriting_users, through: :user_favorite_datasets, source: :user, counter_cache: true
+  has_many :favoriting_users, through: :user_favorite_datasets, source: :user
 
   validates :title, presence: true, uniqueness: {scope: :user, message: "You already have a dataset with that name"}
   validates :user, presence: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214031649) do
+ActiveRecord::Schema.define(version: 20140217203114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140214031649) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_favorite_collections_count", default: 0, null: false
   end
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140214031649) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_plaintext"
+    t.integer  "user_favorite_datasets_count", default: 0, null: false
   end
 
   add_index "datasets", ["user_id"], name: "index_datasets_on_user_id", using: :btree
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 20140214031649) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
-  create_table "users_favorite_collections", id: false, force: true do |t|
+  create_table "users_favorite_collections", force: true do |t|
     t.integer "user_id",       null: false
     t.integer "collection_id", null: false
   end
@@ -95,7 +97,7 @@ ActiveRecord::Schema.define(version: 20140214031649) do
   add_index "users_favorite_collections", ["collection_id"], name: "index_users_favorite_collections_on_collection_id", using: :btree
   add_index "users_favorite_collections", ["user_id"], name: "index_users_favorite_collections_on_user_id", using: :btree
 
-  create_table "users_favorite_datasets", id: false, force: true do |t|
+  create_table "users_favorite_datasets", force: true do |t|
     t.integer "user_id",    null: false
     t.integer "dataset_id", null: false
   end
