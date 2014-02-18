@@ -24,7 +24,7 @@ class DatasetsController < ApplicationController
   end
 
   def create
-    @dataset = Dataset.create(dataset_params.merge(user: current_user, records: 0, size: 0, downloads: 0))
+    @dataset = Dataset.create(dataset_params.merge(user: current_user))
     render 'new' unless @dataset.valid?
 
     redirect_to dataset_path(@dataset)
@@ -38,11 +38,8 @@ class DatasetsController < ApplicationController
   end
 
   def favorite
-    # does ActiveRecord give me a better way to do this?
-    Rails.logger.debug params[:favorite] == true
     if params[:favorite] == "true"
       current_user.favorite_datasets << @dataset
-      # UserFavoriteDataset.create(dataset: @dataset, user: current_user)
     elsif params[:favorite] == "false"
       current_user.favorite_datasets.delete @dataset
     end
@@ -63,6 +60,9 @@ class DatasetsController < ApplicationController
         @dataset = Dataset.find params[:id]
       elsif params[:dataset_id]
         @dataset = Dataset.find params[:dataset_id]
+      end
+      if @dataset.nil?
+        render 'public/404.html', status: 404, layout: false
       end
     end
 
