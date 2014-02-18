@@ -1,14 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :find_user, only: [:show]
+  before_filter :find_user, only: [:show, :collections]
 
   helper_method :editable?
-
-  def datasets
-    @editable = true if current_user.id == params[:user_id]
-  end
-
-  def show
-  end
 
   private
   def find_user
