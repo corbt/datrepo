@@ -1,10 +1,13 @@
 class CollectionsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :favorite]
+  before_filter :authenticate_user!, 
+    only: [:new, :create, :update, :edit, :destroy, :favorite, :datasets]
 
-  before_filter :find_collection, only: [:show, :edit, :update, :destroy, :favorite]
-  before_filter :ensure_editable, only: [:update, :destroy]
+  before_filter :find_collection, 
+    only: [:show, :edit, :update, :destroy, :favorite, :datasets]
 
-  helper_method :editable
+  before_filter :ensure_editable, only: [:update, :destroy, :datasets]
+
+  helper_method :editable?
 
   def update
     @collection.update(collection_params)
@@ -39,8 +42,17 @@ class CollectionsController < ApplicationController
     render nothing: true
   end
 
+  def datasets
+    if params[:add] == "true"
+      @collection.datasets << Dataset.find(params[:dataset])
+    elsif params[:add] == "false"
+      @collection.datasets.delete params[:dataset]
+    end
+    render nothing: true
+  end
+
   private
-    def editable
+    def editable?
       @editable ||= (current_user == @collection.user or current_user && current_user.admin?) ? true : false
     end
 
@@ -60,6 +72,6 @@ class CollectionsController < ApplicationController
     end
 
     def ensure_editable
-      redirect_to collection_path(@collection) unless editable
+      redirect_to collection_path(@collection) unless editable?
     end
 end

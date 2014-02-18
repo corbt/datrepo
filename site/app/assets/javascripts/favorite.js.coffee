@@ -10,26 +10,29 @@ class FavoriteItem
   toggle_favoriting: =>
     if @favorited
       $.post @url, {'favorite': false}, =>
-        @button.text("Favorite")
+        @toggle_favorite()
         @decrement_count()
-        @favorited = false
 
     else
-      $.post(@url, {'favorite': true}, =>
-        @button.text("Unfavorite")
+      $.post(@url, {'favorite': true}, (response) =>
+        @toggle_favorite()
         @increment_count()
-        @favorited = true
         ).fail (request) =>
           if request.status == 401
             window.location = "/users/sign_in"
-          # console.log request.status
-
 
   increment_count: ->
     @count.text(parseInt(@count.text())+1)
 
   decrement_count: ->
     @count.text(parseInt(@count.text())-1)
+
+  toggle_favorite: ->
+    if @favorited
+      @button.text("Favorite")
+    else
+      @button.text("Unfavorite")
+    @favorited = @favorited == false #Switch value
 
 
 

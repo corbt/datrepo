@@ -7,17 +7,23 @@
         - else
           button.btn.action-button#favorite-button type="button" data-url="#{dataset_favorite_path(@dataset)}" data-favorited="false" Favorite
         .action-show#favorite-count
-          = number_with_delimiter @dataset.favoriting_users.size
+          = @dataset.favoriting_users.size
       .action-group
         .btn-group
           button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 
             | Add to collection 
             span.caret
-          ul.dropdown-menu role="menu"
-            li You have no collections
-        .action-show 
-          a href="asdf"
-            = number_with_delimiter @dataset.collections.size
+          ul.dropdown-menu#add-to-collection data-dataset="#{@dataset.id}" role="menu"
+            - if current_user
+              - current_user.collections.each do |collection|
+                - selected = collection.datasets.include? @dataset
+                li
+                  = link_to collection.title, collection_datasets_path(collection), class: "collection-link #{'selected' if selected}", data: {selected: selected}
+            li.divider
+            li 
+              = link_to "Create New Collection...", new_collection_path
+        .action-show#collection-count
+          = @dataset.collections.size
       .action-group
         .btn-group
           button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 

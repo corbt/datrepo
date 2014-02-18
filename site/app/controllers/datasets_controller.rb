@@ -4,7 +4,7 @@ class DatasetsController < ApplicationController
   before_filter :find_dataset, only: [:show, :edit, :update, :destroy, :favorite]
   before_filter :ensure_editable, only: [:update, :destroy]
 
-  helper_method :editable
+  helper_method :editable?
 
   def index
     render 'popular'
@@ -47,7 +47,7 @@ class DatasetsController < ApplicationController
   end
 
   private
-    def editable
+    def editable?
       @editable ||= (current_user == @dataset.user or current_user && current_user.admin?) ? true : false
     end
 
@@ -67,6 +67,6 @@ class DatasetsController < ApplicationController
     end
 
     def ensure_editable
-      redirect_to dataset_path(@dataset) unless editable
+      redirect_to dataset_path(@dataset) unless editable?
     end
 end

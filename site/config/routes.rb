@@ -17,9 +17,9 @@ Datrepo::Application.routes.draw do
 
   resources :collections do
     post 'favorite'
+    post 'datasets'
   end
 
   resources :users, only: [:show] do 
-    get 'following'
   end
 end
