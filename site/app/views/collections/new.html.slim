@@ -1,10 +1,14 @@
 - content_for :title, "New Collection"
 
 .container.narrow
-  = semantic_form_for @collection do |f|
-    .form-errors
-      = f.semantic_errors :title, :description, :custom_license
-    = f.inputs
-      = f.input :title, required: true
-    = f.actions
-      = f.action :submit, button_html: {class: "btn btn-primary"}
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title New Collection
+    .panel-body
+      = semantic_form_for @collection do |f|
+        .form-errors
+          = f.semantic_errors :title, :description, :custom_license
+        = f.inputs
+          = f.input :title, required: true
+        = f.actions
+          = f.action :submit, button_html: {class: "btn btn-primary"}
