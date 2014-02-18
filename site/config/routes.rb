@@ -11,16 +11,12 @@ Datrepo::Application.routes.draw do
     get 'autocomplete'
   end
 
-  # scope '/search' do
-  #   get '' to 'search#'
-  # end
-
   resources :datasets do
     post 'favorite'
+  end
 
-    collection do
-      get 'popular'
-    end
+  resources :collections do
+    post 'favorite'
   end
 
   resources :users, only: [:show] do 

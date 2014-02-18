@@ -1,0 +1,10 @@
+.col-md-3
+  .sidebar
+    .actions
+      .action-group#favorite
+        - if user_signed_in? && UserFavoriteCollection.where(collection: @collection, user: current_user).present?
+          button.btn.action-button#favorite-button type="button" data-url="#{collection_favorite_path(@collection)}" data-favorited="true" Unfavorite
+        - else
+          button.btn.action-button#favorite-button type="button" data-url="#{collection_favorite_path(@collection)}" data-favorited="false" Favorite
+        .action-show#favorite-count
+          = number_with_delimiter @collection.favoriting_users.size

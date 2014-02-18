@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   private
   def find_user
     @user = User.find_by_username(params[:id])
+    if @user.nil?
+      render 'public/404.html', status: 404, layout: false
+    end
   end
 
   def editable?

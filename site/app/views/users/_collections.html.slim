@@ -3,12 +3,11 @@
     h3.panel-title 
       = title
     - if (defined? new_enabled) && new_enabled
-      = link_to "new_collection_path" do
+      = link_to new_collection_path do
         button.new-btn.btn.btn-primary.btn-xs.new-btn New Collection
 
   .panel-body
     - if collections and not collections.empty?
-      = render partial: "datasets/summary", collection: collections, as: :dataset, spacer_template: "shared/panel_spacer" 
-      / Cheating for now with datasets template
+      = render partial: "collections/summary", collection: collections, as: :collection, spacer_template: "shared/panel_spacer" 
     - else
       .panel-empty No collections found.

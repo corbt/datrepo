@@ -1,0 +1,20 @@
+- content_for :title, "Editing #{@collection.title}"
+
+.container.narrow.edit-dataset
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title Update Dataset Information
+    .panel-body
+      = semantic_form_for @collection do |f|
+        .form-errors
+          = f.semantic_errors :title, :description, :custom_license
+        = f.inputs
+          = f.input :title, required: true
+        = f.actions
+          = f.action :submit, button_html: {class: "btn btn-primary"}
+
+  .panel.panel-danger
+    .panel-heading Danger Zone
+    .panel-body
+      p Deleting a collection is unrecoverable. The data will be removed, and any favorites associated with it will be lost.
+      = button_to "Delete Collection", collection_path(@collection), method: :delete, class: "btn btn-danger"

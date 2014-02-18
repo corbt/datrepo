@@ -1,0 +1,18 @@
+- content_for :title, @collection.title
+
+.container.show-dataset
+  - if editable
+    .edit-button
+      = link_to "Edit Collection", edit_collection_path(@collection), html_options={class: "btn btn-primary"}
+  .row
+    .summary.col-md-8
+      h2.dataset-title
+        = @collection.title
+      .username 
+        | By user 
+        = link_to @collection.user.username, user_path(@collection.user)
+
+      = render partial: "users/datasets", 
+        locals: {title: "Datasets", datasets: @collection.datasets}
+
+    = render 'sidebar'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217203114) do
+ActiveRecord::Schema.define(version: 20140217230915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20140217203114) do
 
   create_table "datasets", force: true do |t|
     t.string   "path"
-    t.integer  "records"
-    t.decimal  "size"
-    t.integer  "downloads"
+    t.integer  "records",                      default: 0
+    t.decimal  "size",                         default: 0.0
+    t.integer  "downloads",                    default: 0
     t.integer  "user_id"
     t.text     "custom_license"
     t.text     "description"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140217203114) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_plaintext"
-    t.integer  "user_favorite_datasets_count", default: 0, null: false
+    t.integer  "user_favorite_datasets_count", default: 0,   null: false
   end
 
   add_index "datasets", ["user_id"], name: "index_datasets_on_user_id", using: :btree
