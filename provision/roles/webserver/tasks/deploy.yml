@@ -18,7 +18,10 @@
 - name: Create deployment directory
   file: path={{deploy_directory}} owner=deploy group=deploy state=directory
 
-- name: Make shared directories
+- name: Create shared directory
+  file: path={{deploy_directory}}/shared owner=deploy group=deploy state=directory
+
+- name: Make shared subdirectories
   file: path={{deploy_directory}}/shared/{{item}} group=deploy owner=deploy state=directory
   with_items:
     - tmp
@@ -27,6 +30,7 @@
     - bundle
     - bin
     - config
+    - vendor
   tags: shared
 
 - name: Install database.yml

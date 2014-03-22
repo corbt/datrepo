@@ -1,6 +1,6 @@
 class Dataset < ActiveRecord::Base
   belongs_to :user
-  has_and_belongs_to_many :collections, -> { uniq }
+  has_and_belongs_to_many :collections
 
   has_many :user_favorite_datasets, dependent: :destroy
   has_many :favoriting_users, through: :user_favorite_datasets, source: :user

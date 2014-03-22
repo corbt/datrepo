@@ -32,11 +32,9 @@ group :production do
 end
 
 group :development do 
-  gem 'capistrano', '~> 2.15', require: false
-  gem 'capistrano-ext', require: false
-  gem 'capistrano-unicorn', require: false
-  gem 'capistrano-remote-cache-with-project-root'#, require: false
-  gem 'cape', require: false
+  gem 'capistrano', '~> 3', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
 
   gem 'html2slim', require: false
   gem 'quiet_assets'
