@@ -1,0 +1,29 @@
+---
+webserver_name: datrepo.com
+deploy_directory: /data/datrepo
+app_name: datrepo
+
+tmp: '/tmp'
+
+ruby_version: 2.1.1
+ruby:
+  url: "http://cache.ruby-lang.org/pub/ruby/2.1/ruby-{{ruby_version}}.tar.gz"
+  compressed: ruby-{{ruby_version}}.tar.gz
+  tmp: "{{tmp}}/ruby-{{ruby_version}}"
+
+# rubyTmpDir: /usr/local/src
+# rubyVersion: ruby-2.1.1
+# rubyUrl: 
+# rubyCompressedFile: "{{rubyVersion}}.tar.gz"
+# tmpRubyPath: "{{rubyTmpDir}}/{{rubyVersion}}"
+
+elasticsearch:
+  url: 'http://download.elasticsearch.org/elasticsearch/elasticsearch'
+  deb:
+    package: 'elasticsearch-1.0.1.deb'
+    service: 'elasticsearch'
+    dependencies:
+      - 'openjdk-7-jre'
+      - 'openjdk-7-jdk'
+  plugin: '/usr/share/elasticsearch/bin/plugin'
+  config: '/etc/elasticsearch/elasticsearch.yml'

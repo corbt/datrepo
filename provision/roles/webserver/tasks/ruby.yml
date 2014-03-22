@@ -1,0 +1,46 @@
+---
+# Ruby from source playbook (https://github.com/jgrowl/ansible-playbook-ruby-from-src)
+- name: install ruby dependencies 
+  action: apt pkg={{item}} state=installed
+  with_items:
+    - build-essential
+    - automake
+    - bison
+    - autoconf
+    - pkg-config
+    - libreadline6
+    - libreadline6-dev
+    - openssl
+    - libssl-dev
+    - curl
+    - git-core
+    - zlib1g
+    - zlib1g-dev
+    - libyaml-dev
+    - libsqlite3-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - curl
+    - checkinstall
+
+- name: Ensure directory temporary ruby download directory is present
+  file: state=directory path={{tmp}}
+
+- name: Download ruby source 
+  get_url: url={{ruby.url}} dest={{tmp}}
+
+- name: Extract ruby
+  command: tar -xf {{ruby.compressed}} chdir={{tmp}} creates={{ruby.tmp}}
+
+- name: Configure ruby
+  command: ./configure chdir={{ruby.tmp}} creates={{ruby.tmp}}/Makefile
+
+- name: Compile ruby
+  command: make chdir={{ruby.tmp}} creates={{ruby.tmp}}/ruby
+
+# Not sure if this is working, seemed to hang
+- name: Install ruby
+  command: checkinstall --default --provides ruby chdir={{ruby.tmp}} creates=/usr/local/bin/ruby
+
+- name: Install Bundler
+  command: gem install bundler
