@@ -29,7 +29,6 @@ set :tests, ["spec"]
 # see documentation in lib/capistrano/tasks/setup_config.cap
 # for details of operations
 set(:config_files, %w(
-  unicorn.rb
   unicorn_init.sh
 ))
 
@@ -57,7 +56,7 @@ set(:symlinks, [
   # }
 ])
 
-set :unicorn_config_path, "config/unicorn.rb"
+# set :unicorn_config_path, "config/unicorn.rb"
 
 # this:
 # http://www.capistranorb.com/documentation/getting-started/flow/
