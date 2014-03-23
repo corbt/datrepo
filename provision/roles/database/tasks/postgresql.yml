@@ -22,12 +22,26 @@
 - name: Restart PostgreSQL
   command: service postgresql restart
 
+- name: create the postgresql user for deploy
+  postgresql_user: name=deploy
+  sudo: yes
+  sudo_user: postgres
+
+- name: create the postgresql database for application
+  postgresql_db: name=app_{{app_name}} owner=deploy state=present
+  sudo: yes
+  sudo_user: postgres
+
 - name: create the postgresql user for application
   postgresql_user: name=www-data
   sudo: yes
   sudo_user: postgres
 
-- name: create the postgresql database for application
-  postgresql_db: name=app_{{app_name}} owner=www-data state=present
+- name: Grant the www-data user permission to use the database
+  postgresql_privs: >
+    database=app_{{app_name}} 
+    roles=www-data
+    privs=ALL
+    type=database
   sudo: yes
   sudo_user: postgres

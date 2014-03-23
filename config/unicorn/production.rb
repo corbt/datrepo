@@ -1,12 +1,12 @@
-root = "<%= current_path %>"  
+root = "/data/datrepo"  
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
-user 'www-data', 'www-data'
+# user 'www-data', 'www-data'
 
 listen "#{root}/tmp/sockets/unicorn.sock"
-worker_processes <%= fetch(:unicorn_worker_count) %>
+worker_processes 5
 timeout 40
 preload_app true
 

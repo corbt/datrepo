@@ -57,6 +57,7 @@ set(:symlinks, [
   # }
 ])
 
+set :unicorn_config_path, "config/unicorn.rb"
 
 # this:
 # http://www.capistranorb.com/documentation/getting-started/flow/
@@ -71,4 +72,6 @@ namespace :deploy do
   # compile assets locally then rsync
   after 'deploy:symlink:shared', 'deploy:compile_assets_locally'
   after :finishing, 'deploy:cleanup'
+
+  after :publishing, 'unicorn:restart'
 end
