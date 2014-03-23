@@ -1,4 +1,4 @@
 - include: deploy.yml tags=deploy
 - include: ruby.yml tags=ruby
-# - include: unicorn.yml tags=puma
+- include: unicorn.yml tags=unicorn
 - include: nginx.yml tags=nginx

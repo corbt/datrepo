@@ -2,6 +2,7 @@
 webserver_name: datrepo.com
 deploy_directory: /data/datrepo
 app_name: datrepo
+rails_env: production
 
 tmp: '/tmp'
 

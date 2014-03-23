@@ -1,6 +1,6 @@
 ---
-# - name: upgrade
-#   action: apt update_cache=yes upgrade=yes
+- name: upgrade
+  action: apt update_cache=yes upgrade=yes
 
 - name: Install app dependencies 
   action: apt pkg={{item}} state=installed

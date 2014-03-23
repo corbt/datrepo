@@ -1,0 +1,7 @@
+---
+- name: Render unicorn init script
+  template: src=unicorn_init.sh.j2 dest=/etc/init.d/unicorn_{{rails_env}} group=deploy owner=deploy force=yes
+
+- name: Make unicorn init executable
+  file: path=/etc/init.d/unicorn_{{rails_env}} mode=0775
+
