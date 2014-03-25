@@ -14,6 +14,7 @@ set :deploy_to, "/data/#{fetch(:application)}"
 # dont try and infer something as important as environment from
 # stage name.
 set :rails_env, :production
+set :rack_env, :deployment
 
 # number of unicorn workers, this will be reflected in
 # the unicorn.rb and the monit configs

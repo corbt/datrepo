@@ -35,7 +35,6 @@ group :development do
   gem 'capistrano', '~> 3', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano3-unicorn', require: false
 
   gem 'html2slim', require: false
   gem 'quiet_assets'

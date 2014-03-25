@@ -12,12 +12,6 @@ ruby:
   compressed: ruby-{{ruby_version}}.tar.gz
   tmp: "{{tmp}}/ruby-{{ruby_version}}"
 
-# rubyTmpDir: /usr/local/src
-# rubyVersion: ruby-2.1.1
-# rubyUrl: 
-# rubyCompressedFile: "{{rubyVersion}}.tar.gz"
-# tmpRubyPath: "{{rubyTmpDir}}/{{rubyVersion}}"
-
 elasticsearch:
   url: 'http://download.elasticsearch.org/elasticsearch/elasticsearch'
   deb:

@@ -7,13 +7,15 @@
   with_items:
     - libpq-dev
     - nodejs
-    - imagemagick
   tags: package
 
 - name: Create deployment user
   user: name=deploy comment="Application deployment user"
 
 - authorized_key: user=deploy key='{{ lookup('file', '~/.ssh/id_rsa.pub') }}'
+
+- name: Set deploy's RACK_ENV
+  lineinfile: dest=/home/deploy/.bashrc regexp=^RACK_ENV line=RACK_ENV=deployment
 
 - name: Create deployment directory
   file: path={{deploy_directory}} owner=deploy group=deploy state=directory
