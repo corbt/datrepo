@@ -6,7 +6,7 @@ TIMEOUT=${TIMEOUT-60}
 APP_ROOT={{deploy_directory}}/current
 PID_DIR=$APP_ROOT/tmp/pids
 PID=$PID_DIR/unicorn.pid
-CMD="cd $APP_ROOT;  RAILS_ENV={{rails_env}} BUNDLE_GEMFILE={{deploy_directory}}/current/Gemfile /usr/bin/env bundle exec unicorn -c {{deploy_directory}}/current/config/unicorn/{{rails_env}}.rb -E deployment -D"
+CMD="cd $APP_ROOT;  RAILS_ENV={{rails_env}} RACK_ENV={{rails_env}} BUNDLE_GEMFILE={{deploy_directory}}/current/Gemfile /usr/bin/env bundle exec unicorn -c {{deploy_directory}}/current/config/unicorn/{{rails_env}}.rb -E deployment -D"
 AS_USER=deploy
 set -u
 
