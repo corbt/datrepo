@@ -56,7 +56,7 @@ set(:symlinks, [
   # }
 ])
 
-# set :unicorn_config_path, "config/unicorn.rb"
+set :log_level, :info
 
 # this:
 # http://www.capistranorb.com/documentation/getting-started/flow/
