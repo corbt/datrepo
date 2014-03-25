@@ -19,24 +19,24 @@ set :keep_releases, 5
 set :linked_files, %w{config/database.yml}
 
 # dirs we want symlinking to shared
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # what specs should be run before deployment is allowed to
 # continue, see lib/capistrano/tasks/run_tests.cap
 set :tests, ["spec"]
 
-# which config files should be copied by deploy:setup_config
-# see documentation in lib/capistrano/tasks/setup_config.cap
-# for details of operations
-set(:config_files, %w(
-  unicorn_init.sh
-))
+# # which config files should be copied by deploy:setup_config
+# # see documentation in lib/capistrano/tasks/setup_config.cap
+# # for details of operations
+# set(:config_files, %w(
+#   unicorn_init.sh
+# ))
 
-# which config files should be made executable after copying
-# by deploy:setup_config
-set(:executable_config_files, %w(
-  unicorn_init.sh
-))
+# # which config files should be made executable after copying
+# # by deploy:setup_config
+# set(:executable_config_files, %w(
+#   unicorn_init.sh
+# ))
 
 # files which need to be symlinked to other parts of the
 # filesystem. For example nginx virtualhosts, log rotation
