@@ -7,7 +7,7 @@ class DatasetsController < ApplicationController
   helper_method :editable?
 
   def index
-    render 'popular'
+    redirect_to popular_path
   end
 
   def popular

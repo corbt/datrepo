@@ -7,6 +7,8 @@ Datrepo::Application.routes.draw do
   get '/about', to: 'high_voltage/pages#show', id: 'about'
   # get '/search', to: 'search#show'
 
+  get '/popular', to: 'popular#index'
+
   resource :search, controller: :search, only: :show do
     get 'autocomplete'
   end

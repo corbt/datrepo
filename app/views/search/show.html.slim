@@ -8,11 +8,11 @@
         span.input-group-btn
           button.btn.btn-default type="submit" Search
   -unless @results.nil? || @results.empty?
-    = render partial: "datasets_list", 
+    = render partial: "shared/datasets_list", 
         locals: {title: "Search Results", datasets: @results}
   - else
     .h2 Search Results
     .datasets-empty 
       | No datasets found. You can always look at the  
-      = link_to "popular datasets", datasets_path
+      = link_to "popular datasets", popular_path
       | .

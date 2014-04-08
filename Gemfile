@@ -38,7 +38,7 @@ group :development do
 
   gem 'html2slim', require: false
   gem 'quiet_assets'
-
+  gem 'railroady'
 end
 
 # Testing

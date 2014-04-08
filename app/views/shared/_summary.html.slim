@@ -1,0 +1,14 @@
+.dataset-summary
+  h4.result-title
+    = link_to summary.title, dataset_path(summary)
+    span.favorite-count
+      |  (
+      = pluralize(summary.user_favorite_datasets.size, "favorite")
+      | )
+  .snippet
+    - if summary.description_plaintext
+      = summary.description_plaintext.slice(0, 500)
+      -if summary.description_plaintext.size > 500
+        strong  ...
+    - else
+      .empty-description No description

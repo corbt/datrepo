@@ -1,0 +1,12 @@
+- if defined? title
+  .h2
+    = title
+
+- if datasets && datasets.size > 0
+  - if !defined? hide_count
+    .dataset-count #{pluralize(datasets.size, "dataset")} found
+
+  = render partial: "shared/summary", collection: datasets
+- else
+  .datasets-empty
+    | No datasets.
