@@ -1,6 +1,6 @@
 .col-md-3
   .sidebar
-    .actions
+    .actions.last
       .action-group#favorite
         - if user_signed_in? && UserFavoriteDataset.where(dataset: @dataset, user: current_user).present?
           button.btn.action-button#favorite-button type="button" data-url="#{dataset_favorite_path(@dataset)}" data-favorited="true" Unfavorite
@@ -24,20 +24,20 @@
               = link_to "Create New Collection...", new_collection_path
         .action-show#collection-count
           = @dataset.collections.size
-      .action-group
-        .btn-group
-          button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 
-            | Download 
-            span.caret
-          ul.dropdown-menu role="menu"
-            li
-              a href="JSON" JSON
-            li
-              a href="CSV" CSV
-        .action-show 
-          = number_with_delimiter @dataset.downloads
+      / .action-group
+      /   .btn-group
+      /     button.btn.action-button.dropdown-toggle data-toggle="dropdown" type="button" 
+      /       | Download 
+      /       span.caret
+      /     ul.dropdown-menu role="menu"
+      /       li
+      /         a href="JSON" JSON
+      /       li
+      /         a href="CSV" CSV
+      /   .action-show 
+      /     = number_with_delimiter @dataset.downloads
 
-    .actions.last
-      .action-group.input-group
-        .input-group-addon Clone
-        input.form-control.clone type="text" readonly="readonly" value="https://datrepo.com/clone_url"
+    / .actions.last
+    /   .action-group.input-group
+    /     .input-group-addon Clone
+    /     input.form-control.clone type="text" readonly="readonly" value="https://datrepo.com/clone_url"

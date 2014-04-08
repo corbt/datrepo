@@ -8,6 +8,7 @@
     .summary.col-md-8
       h2.dataset-title
         = @dataset.title
+        = render 'shared/dataset_link', dataset: @dataset
       .username 
         | Shared by user 
         = link_to @dataset.user.username, user_path(@dataset.user)

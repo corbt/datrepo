@@ -5,8 +5,9 @@ class Dataset < ActiveRecord::Base
   has_many :user_favorite_datasets, dependent: :destroy
   has_many :favoriting_users, through: :user_favorite_datasets, source: :user
 
-  validates :title, presence: true, uniqueness: {scope: :user, message: "You already have a dataset with that name"}
+  validates :title, presence: true, uniqueness: {scope: :user, message: "is already in use with another dataset of yours"}
   validates :user, presence: true
+  validates :url, presence: true
 
   before_save :set_description_plaintext
 

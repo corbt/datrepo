@@ -15,6 +15,7 @@ class DatasetsController < ApplicationController
 
   def update
     @dataset.update(dataset_params)
+    render 'edit' and return unless @dataset.valid?
 
     redirect_to dataset_path(@dataset)
   end
@@ -25,7 +26,10 @@ class DatasetsController < ApplicationController
 
   def create
     @dataset = Dataset.create(dataset_params.merge(user: current_user))
-    render 'new' unless @dataset.valid?
+    Rails.logger.debug "Is it valid: "
+    Rails.logger.debug @dataset.valid?
+
+    render 'new' and return unless @dataset.valid?
 
     redirect_to dataset_path(@dataset)
   end
@@ -52,7 +56,7 @@ class DatasetsController < ApplicationController
     end
 
     def dataset_params
-      params.require(:dataset).permit(:title, :custom_license, :description)
+      params.require(:dataset).permit(:title, :custom_license, :description, :url)
     end
 
     def find_dataset

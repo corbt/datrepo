@@ -7,11 +7,12 @@
     .panel-body
       = semantic_form_for @dataset do |f|
         .form-errors
-          = f.semantic_errors :title, :description, :custom_license
+          = f.semantic_errors :title, :description, :custom_license, :url
         = f.inputs
           = f.input :title, required: true
+          = f.input :url, required: true
           = f.input :description
-          = f.input :custom_license, label: "License", hint: "By adding a license to your data, you can let others know what uses are permitted.", input_html: {rows: 5}
+          / = f.input :custom_license, label: "License", hint: "By adding a license to your data, you can let others know what uses are permitted.", input_html: {rows: 5}
         = f.actions
           = f.action :submit, button_html: {class: "btn btn-primary"}
 
