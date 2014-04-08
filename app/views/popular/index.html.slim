@@ -1,3 +1,6 @@
+- @page = "popular"
+- content_for :title, @page.titleize
+
 .container
   = render partial: "shared/datasets_list", 
       locals: {title: "Popular Datasets", datasets: @datasets, hide_count: true}
