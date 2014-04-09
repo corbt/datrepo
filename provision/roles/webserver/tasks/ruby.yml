@@ -22,6 +22,7 @@
     - libxslt1-dev
     - curl
     - checkinstall
+    - libcurl4-gnutls-dev
 
 - name: Ensure directory temporary ruby download directory is present
   file: state=directory path={{tmp}}
