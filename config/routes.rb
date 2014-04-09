@@ -26,7 +26,7 @@ Datrepo::Application.routes.draw do
 
   # http://collectiveidea.com/blog/archives/2013/06/13/building-awesome-rails-apis-part-1/
   namespace :api, defaults: {format: :json} do
-    resources :dataset, only: [:show, :create, :update, :destroy]
+    resources :datasets, only: [:show, :create, :update, :destroy]
     resources :users, only: [:show]
   end
 end
