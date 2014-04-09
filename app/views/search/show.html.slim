@@ -3,7 +3,7 @@
 .container
   .row
     .search-bar.col-lg-6
-      form.input-group method="get" action="" autocomplete="off"
+      form#full-page-search.input-group method="get" action="" autocomplete="off"
         = text_field_tag(:query, @query, autocomplete: 'off', class: 'form-control', id: 'dataset-search')
         span.input-group-btn
           button.btn.btn-default type="submit" Search

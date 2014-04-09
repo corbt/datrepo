@@ -68,7 +68,12 @@
 
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+      // margin-top: -26px;
+      // vertical-align: top;
+    }
 
+    > * {
+      vertical-align: top;
     }
 
     .action-show {

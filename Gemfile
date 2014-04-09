@@ -4,7 +4,7 @@ gem 'rails', '4.1.0'
 
 gem 'pg'
 gem 'formtastic-bootstrap', '~> 3.0.0.rc.2'
-gem 'formtastic'
+gem 'formtastic', github: 'justinfrench/formtastic' 
 
 # Front end
 gem 'sass-rails'
@@ -17,9 +17,9 @@ gem 'turbolinks'
 gem 'nokogiri'
 
 # Admin
-# gem 'activeadmin', github: 'gregbell/active_admin'  
-# gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
-# gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
+gem 'activeadmin', github: 'gregbell/active_admin'  
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "devise", github: "plataformatec/devise"
 
 # Blog
