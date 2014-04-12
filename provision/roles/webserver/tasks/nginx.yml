@@ -1,6 +1,12 @@
 - name: Install nginx
   apt: pkg=nginx state=latest
 
+- name: Copy over ssl certs
+  copy: src={{app_name}}.crt dest=/etc/nginx/ssl/ owner=root group=root mode=0755
+
+- name: Copy over ssl keys
+  copy: src={{app_name}}.key dest=/etc/nginx/ssl/ owner=root group=root mode=0600
+
 - name: Remove the default app
   command: rm -rf /etc/nginx/sites-enabled/default
 
