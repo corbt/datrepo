@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
+*.sublime-project
 *.sublime-workspace
