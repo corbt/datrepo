@@ -138,4 +138,11 @@ describe User do
     end
 
   end
+
+  describe "key generation" do
+    it "should generate a key on creation" do
+      @user = User.create!(@attr)
+      @user.api_key.should_not be_blank
+    end
+  end
 end

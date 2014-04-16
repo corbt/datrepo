@@ -18,4 +18,11 @@ class User < ActiveRecord::Base
   has_many :favorite_collections, through: :user_favorite_collections, source: :collection
   has_many :user_favorite_datasets, dependent: :destroy
   has_many :favorite_datasets, through: :user_favorite_datasets, source: :dataset
+
+  before_create :generate_key
+
+  protected
+    def generate_key
+      self.api_key ||= Devise.friendly_token
+    end
 end
