@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20140416034327) do
     t.integer  "user_id"
     t.text     "custom_license"
     t.text     "description"
-    t.text     "title"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description_plaintext"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140416034327) do
     t.string   "api_key"
   end
 
+  add_index "users", ["api_key"], name: "index_users_on_api_key", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 

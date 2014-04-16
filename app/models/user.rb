@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
     exclusion: { in: %w(corbt kyle kcorbitt datrepo admin) },
     format: { with: /\A(?=.*[a-z])[a-z\d]+\Z/i, message: "should be alphanumeric"}
 
+  validates :api_key, presence: true, uniqueness: true
+
   has_many :datasets, dependent: :destroy
   has_many :collections, dependent: :destroy
 

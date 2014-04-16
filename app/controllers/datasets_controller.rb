@@ -24,8 +24,6 @@ class DatasetsController < ApplicationController
 
   def create
     @dataset = Dataset.create(dataset_params.merge(user: current_user))
-    Rails.logger.debug "Is it valid: "
-    Rails.logger.debug @dataset.valid?
 
     render 'new' and return unless @dataset.valid?
 
@@ -55,12 +53,13 @@ class DatasetsController < ApplicationController
     end
 
     def find_dataset
-      if params[:id]
-        @dataset = Dataset.find params[:id]
-      elsif params[:dataset_id]
-        @dataset = Dataset.find params[:dataset_id]
-      end
-      if @dataset.nil?
+      begin
+        if params[:id]
+          @dataset = Dataset.find params[:id]
+        elsif params[:dataset_id]
+          @dataset = Dataset.find params[:dataset_id]
+        end
+      rescue
         render 'public/404.html', status: 404, layout: false
       end
     end

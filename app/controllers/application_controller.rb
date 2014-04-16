@@ -46,6 +46,10 @@ class ApplicationController < ActionController::Base
   end
 
   def editable? model
-    @editable ||= (current_user == model.user or current_user && current_user.admin?) ? true : false
+    @editable ||= user_editable? model, current_user
+  end
+
+  def user_editable? model, user
+    @user_editable ||= (user == model.user or user && user.admin?) ? true : false
   end
 end
