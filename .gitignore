@@ -17,3 +17,6 @@
 
 *.sublime-project
 *.sublime-workspace
+
+# Ignore secrets
+secrets.yml
