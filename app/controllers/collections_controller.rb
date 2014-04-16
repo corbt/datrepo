@@ -7,7 +7,6 @@ class CollectionsController < ApplicationController
 
   before_filter :ensure_editable, only: [:update, :destroy, :datasets]
 
-  helper_method :editable?
 
   def update
     @collection.update(collection_params)
@@ -52,10 +51,6 @@ class CollectionsController < ApplicationController
   end
 
   private
-    def editable?
-      @editable ||= (current_user == @collection.user or current_user && current_user.admin?) ? true : false
-    end
-
     def collection_params
       params.require(:collection).permit(:title)
     end
@@ -72,6 +67,6 @@ class CollectionsController < ApplicationController
     end
 
     def ensure_editable
-      redirect_to collection_path(@collection) unless editable?
+      redirect_to collection_path(@collection) unless editable?(@collection)
     end
 end

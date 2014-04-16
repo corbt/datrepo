@@ -1,7 +1,7 @@
 - content_for :title, @dataset.title
 
 .container.show-dataset
-  - if editable?
+  - if editable?(@dataset)
     .edit-button
       = link_to "Edit Dataset", edit_dataset_path(@dataset), html_options={class: "btn btn-primary"}
   .row

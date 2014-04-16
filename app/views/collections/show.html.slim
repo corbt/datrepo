@@ -1,7 +1,7 @@
 - content_for :title, @collection.title
 
 .container.show-dataset
-  - if editable?
+  - if editable?(@collection)
     .edit-button
       = link_to "Edit Collection", edit_collection_path(@collection), html_options={class: "btn btn-primary"}
   .row

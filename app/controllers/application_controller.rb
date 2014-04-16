@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :user_path
+  helper_method :editable?
 
   def user_path(user)
     return "/users/#{user.username}" if user.is_a? User
@@ -42,5 +43,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:name, :email, :password, :password_confirmation, :current_password)
     end
+  end
+
+  def editable? model
+    @editable ||= (current_user == model.user or current_user && current_user.admin?) ? true : false
   end
 end

@@ -1,4 +1,4 @@
-class API::DatasetsController < ApplicationController
+class API::DatasetsController < API::APIController
   def show
     render json: Dataset.find(params[:id])
   end
