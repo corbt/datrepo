@@ -36,6 +36,10 @@
             em
               |  (we need your current password to confirm changes)
             = f.password_field :current_password, class: "form-control"
+
+          .form-group
+            = f.label :api_key
+            = f.text_field :api_key, class: "form-control", disabled: true
           div
             = f.submit "Update", class: "btn btn-primary"
 

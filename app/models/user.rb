@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   has_many :user_favorite_datasets, dependent: :destroy
   has_many :favorite_datasets, through: :user_favorite_datasets, source: :dataset
 
-  before_create :generate_key
+  before_validation :generate_key
 
   protected
     def generate_key
